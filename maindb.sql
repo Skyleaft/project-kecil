@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Jun 2019 pada 19.16
+-- Waktu pembuatan: 02 Jun 2019 pada 08.51
 -- Versi server: 10.1.37-MariaDB
 -- Versi PHP: 7.3.1
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `data_diri` (
+  `id` int(11) NOT NULL,
   `nama` varchar(25) NOT NULL,
   `provinsi` varchar(30) NOT NULL,
   `kota_kab` varchar(30) NOT NULL,
@@ -39,15 +40,12 @@ CREATE TABLE `data_diri` (
 -- Dumping data untuk tabel `data_diri`
 --
 
-INSERT INTO `data_diri` (`nama`, `provinsi`, `kota_kab`, `kecamatan`) VALUES
-('milzan', '31', '31.71', '31.71.01'),
-('', '', '', ''),
-('dzikri', '32', '32.01', '32.01.02'),
-('', '', '', ''),
-('dani', '31', '31.01', '31.01.02'),
-('', '', '', ''),
-('ade', '33', '33.01', '33.01.03'),
-('', '', '', '');
+INSERT INTO `data_diri` (`id`, `nama`, `provinsi`, `kota_kab`, `kecamatan`) VALUES
+(1, 'milzan', 'DKI JAKARTA', 'KAB. ADM. KEP. SERIBU', 'Kepulauan Seribu Utara'),
+(7, 'dzikri', 'JAWA BARAT', 'KAB. SUKABUMI', 'Pelabuhanratu'),
+(10, 'Ade', 'DKI JAKARTA', 'KOTA ADM. JAKARTA PUSAT', 'Sawah Besar'),
+(12, 'asd', 'JAWA BARAT', 'KAB. BOGOR', 'Gunung Putri'),
+(13, 'Andi', 'JAWA TENGAH', 'KAB. BANYUMAS', 'Wangon');
 
 -- --------------------------------------------------------
 
@@ -65,6 +63,19 @@ CREATE TABLE `wilayah` (
 --
 
 INSERT INTO `wilayah` (`kode`, `nama`) VALUES
+('11', 'ACEH'),
+('11.01', 'KAB. ACEH SELATAN'),
+('11.01.01', 'Bakongan'),
+('11.01.02', 'Kluet Utara'),
+('11.01.03', 'Kluet Selatan'),
+('11.01.04', 'Labuhan Haji'),
+('11.02', 'KAB. ACEH TENGGARA'),
+('11.02.01', 'Lawe Alas'),
+('11.02.02', 'Lawe Sigala-Gala'),
+('11.02.03', 'Bambel'),
+('11.03', 'KAB. ACEH TIMUR'),
+('11.03.01', 'Darul Aman'),
+('11.03.02', 'Julok'),
 ('31', 'DKI JAKARTA'),
 ('31.01', 'KAB. ADM. KEP. SERIBU'),
 ('31.01.01', 'Kepulauan Seribu Utara'),
@@ -94,10 +105,26 @@ INSERT INTO `wilayah` (`kode`, `nama`) VALUES
 --
 
 --
+-- Indeks untuk tabel `data_diri`
+--
+ALTER TABLE `data_diri`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `wilayah`
 --
 ALTER TABLE `wilayah`
   ADD PRIMARY KEY (`kode`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `data_diri`
+--
+ALTER TABLE `data_diri`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
